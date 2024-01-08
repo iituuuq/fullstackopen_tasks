@@ -1,0 +1,14 @@
+```mermaid
+sequenceDiagram
+    participant user
+    participant browser
+    participant server
+
+    user->>browser: writes a note
+    browser->>server: POST /new_note {"content": "hallo", date: "2024-01-08T15:09:48.165Z"}
+    activate server
+    server->>server: saves the note
+    server-->>browser: [{"message": "note created"}]
+    deactivate server
+    browser->>user: shows success of saving
+```

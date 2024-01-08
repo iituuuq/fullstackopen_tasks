@@ -5,7 +5,7 @@ sequenceDiagram
   participant server
 
   user->>browser: writes a note
-  browser->>server: POST /new_note {content: 'test_new', date: '2024-01-08T14:22:34.456Z'}
+  browser->>server: POST /new_note {"content": 'test_new', date: '2024-01-08T14:22:34.456Z'}
   activate server
   server->>server: saves the note
   server-->>browser: confirmation
