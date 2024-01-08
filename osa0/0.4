@@ -1,0 +1,33 @@
+```mermaid
+sequenceDiagram
+  participant user
+  participant browser
+  participant server
+
+  user->>browser: writes a note
+  browser->>server: POST /new_note {content: 'test_new', date: '2024-01-08T14:22:34.456Z'}
+  activate server
+  server->>server: saves the note
+  server-->>browser: confirmation
+  deactivate server
+  browser->>user: shows success of saving
+
+  browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes  
+  activate server
+  server-->>browser: HTML document
+  deactivate server
+
+  browser ->> server: https://studies.cs.helsinki.fi/exampleapp/main.css
+  activate server
+  server-->>browser: the css file
+  deactivate server
+
+  browser->>server: https://studies.cs.helsinki.fi/exampleapp/main.js
+  activate server
+  server-->>browser: the JavaScript file
+  deactivate server
+
+  browser->>server: https://studies.cs.helsinki.fi/exampleapp/data.json
+  activate server
+  server-->>browser:[{content: "lll", date: "2024-01-08T07:08:08.952Z"},...]
+```
